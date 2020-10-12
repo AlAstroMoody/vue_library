@@ -7,32 +7,30 @@
       class="library__search"
     >
     </el-input>
-    <transition-group name="fade" mode="out-in">
-      <modal-book
-        v-if="modalVisible === 'detail'"
-        @closeModal="modalVisible = false"
-        class="library__modal"
-        :key="modalVisible"
-      >
-        <template v-slot:header>
-          <h2>{{ book.name }}</h2>
-        </template>
-        <book-detail :book="book" />
-      </modal-book>
-      <modal-book
-        v-if="modalVisible === 'edit' || modalVisible === 'new'"
-        @closeModal="modalVisible = false"
-        class="library__modal"
-        :key="modalVisible"
-      >
-        <book-edit
-          :genres="genres"
-          @saveBook="saveBook"
-          v-if="modalVisible === 'new'"
-        />
-        <book-edit :book="book" :genres="genres" @saveBook="saveBook" v-else />
-      </modal-book>
-    </transition-group>
+    <modal-book
+      v-if="modalVisible === 'detail'"
+      @closeModal="modalVisible = false"
+      class="library__modal"
+      :key="modalVisible"
+    >
+      <template v-slot:header>
+        <h2>{{ book.name }}</h2>
+      </template>
+      <book-detail :book="book" />
+    </modal-book>
+    <modal-book
+      v-if="modalVisible === 'edit' || modalVisible === 'new'"
+      @closeModal="modalVisible = false"
+      class="library__modal"
+      :key="modalVisible"
+    >
+      <book-edit
+        :genres="genres"
+        @saveBook="saveBook"
+        v-if="modalVisible === 'new'"
+      />
+      <book-edit :book="book" :genres="genres" @saveBook="saveBook" v-else />
+    </modal-book>
     <div class="library__table">
       <el-button
         @click="openModalAdd"
@@ -41,14 +39,8 @@
         circle
         class="library__table-add"
       />
-      <el-table :data="filteredBooks" border style="width: 100%">
-        <el-table-column
-          prop="name"
-          label="Название"
-          fixed
-          min-width="100"
-          show-overflow-tooltip
-        >
+      <el-table :data="filteredBooks" border>
+        <el-table-column prop="name" label="Название" fixed min-width="100">
           <template slot-scope="scope">
             <el-button @click="detailBook(scope.row)" type="text">
               {{ scope.row.name }}
@@ -226,16 +218,6 @@ export default {
 
 .el-table {
   border-radius: 10px;
-}
-
-.library__modal {
-  position: absolute;
-  margin: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 100%;
 }
 
 .fade-enter-active,

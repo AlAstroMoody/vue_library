@@ -24,7 +24,7 @@
         property="publisher"
         label="Издательство"
         show-overflow-tooltip
-        width="120"
+        min-width="70"
       >
       </el-table-column>
     </el-table>
@@ -80,6 +80,7 @@ export default {
 .inventory {
   margin-top: 20px;
   width: 50%;
+  min-width: 380px;
 }
 
 ul li {

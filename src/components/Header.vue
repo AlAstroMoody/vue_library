@@ -2,7 +2,6 @@
   <header>
     <section class="header__aligned">
       <img :src="cat" class="header__image" />
-
       <h2>Картотека домашней библиотеки</h2>
       <br />
       <div class="header__links">
@@ -42,7 +41,6 @@ header {
   transform-origin: top right;
   margin-top: -30px;
   transition-duration: 1s;
-  margin-bottom: 15px;
   overflow: hidden;
 }
 
@@ -52,7 +50,7 @@ header {
 }
 
 header:hover {
-  height: 150px;
+  height: 170px;
   transition-duration: 1s;
 }
 .header__button {
@@ -64,15 +62,22 @@ header:hover {
 }
 .header__button {
   padding: 10px;
-  background-color: lightblue;
+  background-color: #697679;
   border-radius: 10px;
+  color: white;
   margin: 5px;
 }
 
 .header__image {
   width: 150px;
   position: absolute;
-  top: -7px;
-  left: 10%;
+  top: 20px;
+  left: 5%;
+}
+
+@media screen and (max-width: 800px) {
+  .header__image {
+    display: none;
+  }
 }
 </style>

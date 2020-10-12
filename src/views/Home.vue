@@ -57,6 +57,7 @@ export default {
   margin: 2% auto;
   display: flex;
   flex-direction: column;
+  align-content: center;
   width: 80%;
 }
 
@@ -75,19 +76,12 @@ export default {
   width: 32%;
   padding-top: 10px;
   margin: 0.5%;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-  box-shadow: 4px 2px 10px 0 rgba(0, 0, 0, 0.1);
-  background: white;
-  border-radius: 5px;
-  text-align: center;
 }
 
 .home__card:hover {
   box-shadow: 0 0 5px #000;
 }
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.4s;
@@ -97,7 +91,15 @@ export default {
 .fade-leave-to {
   opacity: 0;
 }
+
 .home__modal {
   margin: auto;
+}
+
+@media screen and (max-width: 960px) {
+  .home__main {
+    min-width: 380px;
+    width: 100%;
+  }
 }
 </style>

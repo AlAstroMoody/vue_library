@@ -3,25 +3,19 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Library from "../views/Library.vue";
 import Inventory from "../views/Inventory.vue";
-import store from "@/store/index";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
+    path: "/home/",
     name: "Home",
     component: Home
   },
   {
     path: "/library/",
     name: "Library",
-    component: Library,
-    beforeEnter(from, to, next) {
-      store.dispatch("books/setBooks");
-      store.dispatch("genres/setGenres");
-      next();
-    }
+    component: Library
   },
   {
     path: "/inventory/",

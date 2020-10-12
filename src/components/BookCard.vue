@@ -1,21 +1,15 @@
 <template>
-  <div @click="openModal">
-    <div class="book">
-      <div class="book__header">
-        <img :src="image" class="book__image" />
-      </div>
+  <div @click="openModal" class="book">
+    <div class="book__header">
+      <img :src="image" class="book__image" />
     </div>
+
     <div class="book__footer">
       {{ book.author }}
     </div>
     <el-button type="text" class="book__title">
       {{ book.name }}
     </el-button>
-    <div class="svg-wrapper">
-      <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
-        <rect class="shape" height="60" width="320" />
-      </svg>
-    </div>
   </div>
 </template>
 
@@ -43,13 +37,19 @@ export default {
 <style scoped>
 .book {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  box-shadow: 4px 2px 10px 0 rgba(0, 0, 0, 0.1);
+  background: white;
+  border-radius: 5px;
 }
 
 .book__header {
   display: flex;
   justify-content: center;
   overflow: hidden;
+  width: 100%;
 }
 
 .book__image {
@@ -59,7 +59,8 @@ export default {
 }
 
 .book__footer {
-  min-height: 50px;
+  min-height: 30px;
+  padding: 5px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -67,6 +68,7 @@ export default {
 
 .book__title {
   font-size: 25px;
+  min-height: 50px;
   font-weight: lighter;
   padding: 5px;
   color: orange;
@@ -74,31 +76,9 @@ export default {
   justify-content: center;
   margin-bottom: -2%;
   width: 100%;
-  z-index: 500;
 }
-
-.svg-wrapper {
-  min-height: 40px;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  margin: 0 auto;
-  width: 320px;
-}
-
-.shape {
-  stroke-dasharray: 140 540;
-  stroke-dashoffset: -474;
-  stroke-width: 8px;
-  fill: transparent;
-  stroke: #19f6e8;
-  border-bottom: 5px solid black;
-  transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
-}
-
-.svg-wrapper:hover .shape {
-  stroke-width: 2px;
-  stroke-dashoffset: 0;
-  stroke-dasharray: 760;
+.book__title:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s;
 }
 </style>

@@ -10,9 +10,7 @@ import "firebase/auth";
 import "firebase/database";
 import "firebase/messaging";
 import "firebase/storage";
-import VueGoodTable from "vue-good-table";
 
-Vue.use(VueGoodTable);
 Vue.config.productionTip = false;
 Vue.use(ElementUI, { locale });
 
