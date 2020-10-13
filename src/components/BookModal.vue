@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: "modalBook",
+  name: "BookModal",
   methods: {
     close() {
       this.$emit("closeModal");
@@ -49,7 +49,7 @@ export default {
   height: 100%;
   box-sizing: border-box;
   transition: opacity 0.3s ease;
-  z-index: 9998;
+  z-index: 10;
 }
 
 .modal__body {

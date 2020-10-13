@@ -2,7 +2,7 @@
   <div class="home">
     <h2>Последние добавленные книги</h2>
     <section class="home__main">
-      <div class="home__card" v-for="(book, index) in lastBooks" :key="book.id">
+      <div class="home__card" v-for="(book, index) in lastBooks" :key="index">
         <book-card
           :book="book"
           :image="images[index]"

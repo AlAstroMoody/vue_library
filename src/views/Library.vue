@@ -7,7 +7,7 @@
       class="library__search"
     >
     </el-input>
-    <modal-book
+    <book-modal
       v-if="modalVisible === 'detail'"
       @closeModal="modalVisible = false"
       class="library__modal"
@@ -17,8 +17,8 @@
         <h2>{{ book.name }}</h2>
       </template>
       <book-detail :book="book" />
-    </modal-book>
-    <modal-book
+    </book-modal>
+    <book-modal
       v-if="modalVisible === 'edit' || modalVisible === 'new'"
       @closeModal="modalVisible = false"
       class="library__modal"
@@ -30,7 +30,7 @@
         v-if="modalVisible === 'new'"
       />
       <book-edit :book="book" :genres="genres" @saveBook="saveBook" v-else />
-    </modal-book>
+    </book-modal>
     <div class="library__table">
       <el-button
         @click="openModalAdd"
@@ -102,14 +102,14 @@
 </template>
 
 <script>
-import ModalBook from "@/components/modalBook";
 import BookDetail from "@/components/BookDetail";
 import { mapActions } from "vuex";
 import BookEdit from "@/components/BookEdit";
+import BookModal from "@/components/BookModal";
 
 export default {
   name: "Library",
-  components: { BookEdit, BookDetail, ModalBook },
+  components: { BookModal, BookEdit, BookDetail },
   data() {
     return {
       book: {},
@@ -175,15 +175,15 @@ export default {
       )
         .then(() => {
           this.$store.dispatch("books/removeBook", book.id);
-          this.$message({
-            type: "success",
-            message: "Удалено!"
+          this.$notify.info({
+            message: "Удалено!",
+            type: "success"
           });
         })
         .catch(() => {
-          this.$message({
-            type: "info",
-            message: "Отмена"
+          this.$notify.info({
+            message: "Удалено!",
+            type: "success"
           });
         });
     }
@@ -210,6 +210,7 @@ export default {
 .el-table th > .cell {
   text-align: center;
 }
+
 .library__search {
   width: 30%;
   max-width: 300px;
