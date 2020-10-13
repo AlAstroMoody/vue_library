@@ -39,7 +39,7 @@
         circle
         class="library__table-add"
       />
-      <el-table :data="filteredBooks" border>
+      <el-table :data="filteredBooks" border lazy>
         <el-table-column prop="name" label="Название" fixed min-width="100">
           <template slot-scope="scope">
             <el-button @click="detailBook(scope.row)" type="text">
@@ -82,7 +82,7 @@
             <i class="el-icon-close" v-if="!scope.row.inStock" />
           </template>
         </el-table-column>
-        <el-table-column fixed="right" label="Действия" width="120">
+        <el-table-column fixed="right" label="Действия" width="90">
           <template slot-scope="scope">
             <el-button
               @click="openModalEdit(scope.row)"
@@ -236,5 +236,27 @@ export default {
   top: -25px;
   left: -25px;
   font-size: 20px;
+}
+
+@media screen and (max-width: 1135px) {
+  .el-table {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .library__table {
+    width: 95%;
+  }
+  .library__table-add {
+    top: -30px;
+    left: -5px;
+  }
+  .el-table {
+    font-size: 10px;
+  }
+  .cell {
+    padding: 2px;
+  }
 }
 </style>

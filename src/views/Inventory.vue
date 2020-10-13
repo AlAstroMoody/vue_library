@@ -3,7 +3,7 @@
     <span v-if="notFoundBooks.length === 0">*Отмечаем найденные</span>
     <template v-else>
       <span>Не найдены:</span>
-      <transition-group name="boom">
+      <transition-group name="boom" appear>
         <ul v-for="book in notFoundBooks" :key="book">
           <li>{{ book }}</li>
         </ul>
@@ -14,11 +14,11 @@
       :data="books"
       @selection-change="handleSelectionChange"
     >
-      <el-table-column type="selection" width="55"> </el-table-column>
-      <el-table-column label="Название" min-width="120">
+      <el-table-column type="selection" width="30"> </el-table-column>
+      <el-table-column label="Название" min-width="110">
         <template slot-scope="scope">{{ scope.row.name }}</template>
       </el-table-column>
-      <el-table-column property="author" label="Автор" min-width="120">
+      <el-table-column property="author" label="Автор" min-width="110">
       </el-table-column>
       <el-table-column
         property="publisher"
@@ -92,12 +92,25 @@ ul li {
   animation: slideIn 1s;
 }
 
+.boom-leave-active {
+  animation: slideOut 1s;
+}
+
 @keyframes slideIn {
   from {
     transform: translate(-800px);
   }
   to {
     transform: translate(0px);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translate(0px);
+  }
+  to {
+    transform: translate(-800px);
   }
 }
 </style>

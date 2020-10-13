@@ -1,10 +1,12 @@
 <template>
   <transition name="modal">
     <div class="modal__mask" @click.self="close">
-      <el-card class="modal__body" :body-style="{ padding: '0px' }">
+      <div class="modal__body">
+        <el-button @click="close" type="text" class="modal__close">
+          &#10006;
+        </el-button>
         <header class="modal__header">
           <slot name="header" />
-          <el-button @click="close" type="text">&#10006;</el-button>
         </header>
         <main class="modal__main">
           <slot />
@@ -12,7 +14,7 @@
         <footer class="modal__footer">
           <slot name="footer" />
         </footer>
-      </el-card>
+      </div>
     </div>
   </transition>
 </template>
@@ -53,13 +55,24 @@ export default {
 }
 
 .modal__body {
+  padding: 5px;
+  font-family: Helvetica, Arial, sans-serif;
+  border-radius: 2px;
+  background-color: #fff;
+  box-sizing: border-box;
   display: flex;
   margin: 50px auto;
   box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
   width: 60%;
   min-width: 450px;
-  z-index: 10;
   transition: all 0.3s ease;
+  position: relative;
+}
+
+.modal__close {
+  position: absolute;
+  top: -5px;
+  right: 10px;
 }
 
 .modal__header {
@@ -87,11 +100,23 @@ export default {
   align-items: flex-start;
   min-height: 20%;
   background-color: #eee;
+  width: 100%;
+  min-width: 300px;
+}
+
+@media screen and (max-width: 800px) {
+  .modal__body {
+    width: 80%;
+  }
+  .modal__header {
+    font-size: 15px;
+  }
 }
 
 @media screen and (max-width: 500px) {
   .modal__body {
-    min-width: 380px;
+    flex-direction: column;
+    min-width: 350px;
   }
 }
 

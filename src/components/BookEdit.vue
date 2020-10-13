@@ -177,9 +177,36 @@ label span {
   margin: auto;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 780px) {
   .book__description {
     min-width: 370px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .book__description {
+    min-width: 320px;
+  }
+  .book {
+    min-width: 350px;
+  }
+  .book__left {
+    margin: 0;
+    min-width: 320px;
+  }
+  .book__right {
+    margin: 0;
+    min-width: 320px;
+  }
+  .book__input {
+    max-width: 150px;
+    margin: 1px 5px 1px 1px;
+    padding: 0;
+  }
+  .label span {
+    max-width: 80px;
+  }
+  .book__label {
+    margin: 0;
   }
 }
 </style>

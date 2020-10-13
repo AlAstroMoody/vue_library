@@ -2,16 +2,22 @@
   <div class="home">
     <h2>Последние добавленные книги</h2>
     <section class="home__main">
-      <div class="home__card" v-for="(book, index) in lastBooks" :key="index">
+      <a
+        class="home__card"
+        v-for="(book, index) in lastBooks"
+        :key="index"
+        href="#book"
+      >
         <book-card
           :book="book"
           :image="images[index]"
           @openModal="detailBook(book)"
         />
-      </div>
+      </a>
     </section>
     <transition name="fade" mode="out-in">
       <book-detail
+        id="book"
         v-if="modalVisible"
         @closeModal="modalVisible = !modalVisible"
         :book="book"
@@ -98,8 +104,15 @@ export default {
 
 @media screen and (max-width: 960px) {
   .home__main {
-    min-width: 380px;
+    min-width: 350px;
     width: 100%;
   }
+  .home {
+    width: 100%;
+  }
+}
+a {
+  text-decoration: none;
+  color: #2c3e50;
 }
 </style>

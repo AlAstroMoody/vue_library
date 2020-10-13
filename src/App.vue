@@ -21,6 +21,7 @@
   height: 100%;
   min-height: 100vh;
 }
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.2s;
@@ -30,10 +31,21 @@
 .fade-leave-to {
   opacity: 0;
 }
+
+.el-icon-top {
+  position: absolute;
+  top: 150px;
+  left: 5%;
+  font-size: 20px;
+}
 </style>
 <script>
 import HeaderLibrary from "@/components/Header";
 export default {
-  components: { HeaderLibrary }
+  components: { HeaderLibrary },
+  async created() {
+    await this.$store.dispatch("books/setBooks");
+    await this.$store.dispatch("genres/setGenres");
+  }
 };
 </script>

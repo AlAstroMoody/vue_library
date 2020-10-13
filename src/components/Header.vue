@@ -33,7 +33,7 @@ export default {
 <style scoped>
 header {
   width: 100%;
-  height: 100px;
+  height: 104px;
   text-align: center;
   background: lightblue;
   position: relative;
@@ -58,8 +58,11 @@ header:hover {
 }
 .header__links {
   margin: 0 auto;
-  width: 400px;
+  min-width: 350px;
+  display: flex;
+  justify-content: center;
 }
+
 .header__button {
   padding: 10px;
   background-color: #697679;
@@ -78,6 +81,18 @@ header:hover {
 @media screen and (max-width: 800px) {
   .header__image {
     display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header__button {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .header__button {
+    margin: -15px auto;
   }
 }
 </style>
