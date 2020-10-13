@@ -39,8 +39,8 @@
         circle
         class="library__table-add"
       />
-      <el-table :data="filteredBooks" border lazy>
-        <el-table-column prop="name" label="Название" fixed min-width="100">
+      <el-table :data="filteredBooks" border>
+        <el-table-column label="Название" fixed min-width="120">
           <template slot-scope="scope">
             <el-button @click="detailBook(scope.row)" type="text">
               {{ scope.row.name }}
@@ -65,23 +65,23 @@
           </template>
         </el-table-column>
         <el-table-column prop="rating" label="Оценка" width="75" />
-        <el-table-column
-          prop="publisher"
-          label="Издательство"
-          min-width="100"
-        />
-        <el-table-column
-          prop="origin"
-          label="Происхождение"
-          min-width="100"
-          show-overflow-tooltip
-        />
-        <el-table-column prop="inStock" label="Наличие" width="90">
-          <template slot-scope="scope">
-            <i class="el-icon-check" v-if="scope.row.inStock" />
-            <i class="el-icon-close" v-if="!scope.row.inStock" />
-          </template>
-        </el-table-column>
+        <!--        <el-table-column-->
+        <!--          prop="publisher"-->
+        <!--          label="Издательство"-->
+        <!--          min-width="100"-->
+        <!--        />-->
+        <!--        <el-table-column-->
+        <!--          prop="origin"-->
+        <!--          label="Происхождение"-->
+        <!--          min-width="100"-->
+        <!--          show-overflow-tooltip-->
+        <!--        />-->
+        <!--        <el-table-column prop="inStock" label="Наличие" width="90">-->
+        <!--          <template slot-scope="scope">-->
+        <!--            <i class="el-icon-check" v-if="scope.row.inStock" />-->
+        <!--            <i class="el-icon-close" v-if="!scope.row.inStock" />-->
+        <!--          </template>-->
+        <!--        </el-table-column>-->
         <el-table-column fixed="right" label="Действия" width="90">
           <template slot-scope="scope">
             <el-button
@@ -238,12 +238,6 @@ export default {
   font-size: 20px;
 }
 
-@media screen and (max-width: 1135px) {
-  .el-table {
-    font-size: 12px;
-  }
-}
-
 @media screen and (max-width: 780px) {
   .library__table {
     width: 95%;
@@ -258,5 +252,9 @@ export default {
   .cell {
     padding: 2px;
   }
+}
+
+.el-button {
+  white-space: normal;
 }
 </style>

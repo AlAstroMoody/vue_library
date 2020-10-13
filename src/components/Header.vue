@@ -2,7 +2,7 @@
   <header>
     <section class="header__aligned">
       <img :src="cat" class="header__image" />
-      <h2>Картотека домашней библиотеки</h2>
+      <span class="header__title">Картотека домашней библиотеки</span>
       <br />
       <div class="header__links">
         <router-link :to="{ name: 'Home' }" class="header__button">
@@ -53,11 +53,17 @@ header:hover {
   height: 170px;
   transition-duration: 1s;
 }
+
+.header__title {
+  font-size: 2rem;
+}
+
 .header__button {
   margin: 20px;
 }
+
 .header__links {
-  margin: 0 auto;
+  margin: 30px auto;
   min-width: 350px;
   display: flex;
   justify-content: center;
@@ -78,7 +84,7 @@ header:hover {
   left: 5%;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   .header__image {
     display: none;
   }
@@ -88,11 +94,13 @@ header:hover {
   .header__button {
     font-size: 12px;
   }
+  .header__title {
+    font-size: 1.5rem;
+  }
 }
-
-@media screen and (max-width: 450px) {
-  .header__button {
-    margin: -15px auto;
+@media screen and (max-width: 400px) {
+  .header__title {
+    font-size: 1.3rem;
   }
 }
 </style>

@@ -11,13 +11,13 @@
       </label>
       <label class="book__label">
         <span>Субьективная оценка</span>
-        <el-select v-model="obj.rating" class="book__input">
-          <el-option
-            v-for="item in rating"
-            :key="item.value"
-            :value="item.value"
-          />
-        </el-select>
+        <el-rate
+          v-model="obj.rating"
+          :texts="['Провал', 'Разочарование', 'Нормально', 'Хорошо', 'Отлично']"
+          show-text
+          class="book__input"
+        >
+        </el-rate>
       </label>
       <label class="book__label">
         <span>Издательство</span>
@@ -68,24 +68,7 @@ export default {
   name: "BookEdit",
   data() {
     return {
-      obj: this.book,
-      rating: [
-        {
-          value: "5"
-        },
-        {
-          value: "4"
-        },
-        {
-          value: "3"
-        },
-        {
-          value: "2"
-        },
-        {
-          value: "1"
-        }
-      ]
+      obj: this.book
     };
   },
   props: {

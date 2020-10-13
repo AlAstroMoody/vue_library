@@ -15,7 +15,7 @@
       @selection-change="handleSelectionChange"
     >
       <el-table-column type="selection" width="30"> </el-table-column>
-      <el-table-column label="Название" min-width="110">
+      <el-table-column label="Название" min-width="130">
         <template slot-scope="scope">{{ scope.row.name }}</template>
       </el-table-column>
       <el-table-column property="author" label="Автор" min-width="110">
@@ -80,7 +80,7 @@ export default {
 .inventory {
   margin-top: 20px;
   width: 50%;
-  min-width: 380px;
+  min-width: 370px;
 }
 
 ul li {
